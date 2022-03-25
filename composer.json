@@ -1,0 +1,11 @@
+{
+    "name": "theegywolf/web-basics",
+    "autoload": {
+        "psr-4": {
+            "Theegywolf\\WebBasics\\": "src/"
+        }
+    },
+    "require": {
+        "fakerphp/faker": "^1.19"
+    }
+}
