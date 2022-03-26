@@ -7,7 +7,7 @@
 3. Based on the URL:
 
    - Search about and get a specific product using search, for example:
-   - If a website is built to display clothing products, return all products whose size is mentioned as XLarge in product info.
+     If a website is built to display clothing products, return all products whose size is mentioned as XLarge in product info.
    - Create a form for adding a new product.
 
    - Save/Store favorite's products using session.

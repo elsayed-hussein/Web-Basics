@@ -3,34 +3,34 @@
 
 // $faker = Faker\Factory::create();
 
-// function gen_uuid()
-// {
-//     return sprintf(
-//         '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-//         // 32 bits for "time_low"
-//         mt_rand(0, 0xffff),
-//         mt_rand(0, 0xffff),
+function gen_uuid()
+{
+        return sprintf(
+                '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                // 32 bits for "time_low"
+                mt_rand(0, 0xffff),
+                mt_rand(0, 0xffff),
 
-//         // 16 bits for "time_mid"
-//         mt_rand(0, 0xffff),
+                // 16 bits for "time_mid"
+                mt_rand(0, 0xffff),
 
-//         // 16 bits for "time_hi_and_version",
-//         // four most significant bits holds version number 4
-//         mt_rand(0, 0x0fff) | 0x4000,
+                // 16 bits for "time_hi_and_version",
+                // four most significant bits holds version number 4
+                mt_rand(0, 0x0fff) | 0x4000,
 
-//         // 16 bits, 8 bits for "clk_seq_hi_res",
-//         // 8 bits for "clk_seq_low",
-//         // two most significant bits holds zero and one for variant DCE1.1
-//         mt_rand(0, 0x3fff) | 0x8000,
+                // 16 bits, 8 bits for "clk_seq_hi_res",
+                // 8 bits for "clk_seq_low",
+                // two most significant bits holds zero and one for variant DCE1.1
+                mt_rand(0, 0x3fff) | 0x8000,
 
-//         // 48 bits for "node"
-//         mt_rand(0, 0xffff),
-//         mt_rand(0, 0xffff),
-//         mt_rand(0, 0xffff)
-//     );
-// }
+                // 48 bits for "node"
+                mt_rand(0, 0xffff),
+                mt_rand(0, 0xffff),
+                mt_rand(0, 0xffff)
+        );
+}
 
-// $sizes = ["X"Large",", ""Large",", ""Medium",", ""Small","];
+// $sizes = ["XLarge", "Large", "Medium", "Small"];
 
 
 // function generateRandomString($length = 10)
@@ -44,11 +44,11 @@
 //     return $randomString;
 // }
 
-// $arr = [];
+// $products = [];
 
 // for ($i = 0; $i < 60; $i++) {
 //     array_push(
-//         $arr,
+//         $products,
 //         [
 //             "id" => gen_uuid(),
 //             "size" => $sizes[array_rand($sizes, 1)],
@@ -69,10 +69,10 @@
 // echo "<hr/><br/>";
 // echo generateRandomString(rand(50, 100));
 // echo "<pre/>";
-// print_r($arr);
+// print_r($products);
 
 
-$arr = [
+$products = [
         0 => [
                 "id" => "f9aee650-6fa7-4fb9-a319-d477451afc90",
                 "size" => "Medium",
@@ -494,5 +494,3 @@ $arr = [
                 "about" => "n7AJlFFo6QgnxGxEBvGcwl0tJINiC8HiSRlN1yWBtDOrPmAqvwxZph50MlZn5bKWRMBfrOSy81E"
         ]
 ];
-echo "<pre/>";
-print_r($arr);

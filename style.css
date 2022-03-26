@@ -1,0 +1,17 @@
+.allProduct {
+  display: grid;
+  grid-template-columns: repeat(3, 31%);
+  grid-gap: 2%;
+  width: 100vw;
+  word-wrap: break-word;
+  margin-left: 5px;
+  margin-top: 15px;
+}
+.product {
+  border: 2px solid black;
+  padding: 15px;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
