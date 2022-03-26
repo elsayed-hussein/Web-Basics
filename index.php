@@ -2,11 +2,8 @@
 // Start the session
 session_start();
 // session_destroy();
-var_dump($_SESSION["favorite_products"]);
-$favorite_products = array();
+$favorite_products = $_SESSION["favorite_products"];
 if (isset($_POST['add'])) {
-    $favorite_products = $_SESSION["favorite_products"];
-
     array_push(
         $favorite_products,
         [
@@ -17,7 +14,6 @@ if (isset($_POST['add'])) {
             "about" => $_POST['about']
         ]
     );
-    var_dump($favorite_products);
 };
 $_SESSION["favorite_products"] = $favorite_products;
 // 60 products array
@@ -102,70 +98,69 @@ if (isset($_POST['search'])) {
 
     </fieldset>
     <!-- Search Products end -->
-    <div class="allProduct">
+    <fieldset>
+        <legend>Favorite Products</legend>
         <!-- Display Favorite Products start -->
-        <?php if (isset($_SESSION["favorite_products"])) : ?>
-            <fieldset>
-                <legend>Favorite Products</legend>
-                <?php for ($i = 0; $i < count($_SESSION["favorite_products"]); $i++) : ?>
-                    <div class="product">
-                        <ul>
-                            <li>
-                                <h3>
-                                    Product Num :
-                                </h3>
-                                <p>
-                                    <?php echo $i + 1; ?>
-                                </p>
-                            </li>
-                            <li>
-                                <h3>
-                                    Product ID :
-                                </h3>
-                                <p>
-                                    <?php echo $_SESSION["favorite_products"][$i]["id"]; ?>
-                                </p>
-                            </li>
-                            <li>
-                                <h3>
-                                    Product Size :
-                                </h3>
-                                <p>
-                                    <?php echo $_SESSION["favorite_products"][$i]["size"]; ?>
-                                </p>
-                            </li>
-                            <li>
-                                <h3>
-                                    Product Name :
-                                </h3>
-                                <p>
-                                    <?php echo $_SESSION["favorite_products"][$i]["name"]; ?>
-                                </p>
-                            </li>
-                            <li>
-                                <h3>
-                                    Product Image :
-                                </h3>
-                                <p>
-                                    <img src=" <?php echo $_SESSION["favorite_products"][$i]["image"]; ?>">
+        <div class="allProduct">
 
-                                </p>
-                            </li>
-                            <li>
-                                <h3>
-                                    Product About :
-                                </h3>
-                                <p>
-                                    <?php echo $_SESSION["favorite_products"][$i]["about"]; ?>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                <?php endfor ?>
-            </fieldset>
-        <?php endif ?>
-        <!-- Display Favorite Products end -->
-    </div>
+            <?php for ($i = 0; $i < count($_SESSION["favorite_products"]); $i++) : ?>
+                <div class="product">
+                    <ul>
+                        <li>
+                            <h3>
+                                Product Num :
+                            </h3>
+                            <p>
+                                <?php echo $i + 1; ?>
+                            </p>
+                        </li>
+                        <li>
+                            <h3>
+                                Product ID :
+                            </h3>
+                            <p>
+                                <?php echo $_SESSION["favorite_products"][$i]["id"]; ?>
+                            </p>
+                        </li>
+                        <li>
+                            <h3>
+                                Product Size :
+                            </h3>
+                            <p>
+                                <?php echo $_SESSION["favorite_products"][$i]["size"]; ?>
+                            </p>
+                        </li>
+                        <li>
+                            <h3>
+                                Product Name :
+                            </h3>
+                            <p>
+                                <?php echo $_SESSION["favorite_products"][$i]["name"]; ?>
+                            </p>
+                        </li>
+                        <li>
+                            <h3>
+                                Product Image :
+                            </h3>
+                            <p>
+                                <img src=" <?php echo $_SESSION["favorite_products"][$i]["image"]; ?>">
+
+                            </p>
+                        </li>
+                        <li>
+                            <h3>
+                                Product About :
+                            </h3>
+                            <p>
+                                <?php echo $_SESSION["favorite_products"][$i]["about"]; ?>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            <?php endfor ?>
+        </div>
+    </fieldset>
+    <!-- Display Favorite Products end -->
     <div class="allProduct">
         <!-- Display only 15 products start -->
         <?php if (isset($search_products)) : ?>
@@ -314,5 +309,5 @@ if (isset($_POST['search'])) {
 <!--[x] Display only 15 products. -->
 <!--[x] Search about and get a specific product using search. -->
 <!--[x] Create a form for adding a new product. -->
-<!--[ ] Save/Store favorite's products using session. -->
+<!--[x] Save/Store favorite's products using session. -->
 <!--[ ] Save the last 3 products that the user searched about using Cookies. -->

@@ -1,4 +1,5 @@
-.allProduct {
+.allProduct,
+.allProduct fieldset {
   display: grid;
   grid-template-columns: repeat(3, 31%);
   grid-gap: 2%;
