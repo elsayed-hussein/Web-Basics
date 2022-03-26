@@ -35,8 +35,17 @@ if (isset($_POST['name'])) {
 // Add New Product end
 // Search Products start 
 $search_products = [];
+
+if (!json_decode($_COOKIE['searched_products'], true) == null) {
+
+    $searched_products = json_decode($_COOKIE['searched_products'], true);
+} else {
+    $searched_products = [];
+};
+
 if (isset($_POST['search'])) {
     $search_products = [];
+    array_unshift($searched_products, $_POST['search']);
     foreach ($products as $product) {
         if (array_search($_POST['search'], $product)) {
             array_push(
@@ -46,6 +55,8 @@ if (isset($_POST['search'])) {
         };
     }
 };
+$json = json_encode($searched_products);
+setcookie('searched_products', $json);
 // Search Products end
 
 
@@ -95,7 +106,27 @@ if (isset($_POST['search'])) {
 
             <input type="submit" value="Search Products">
         </form>
+        <?php if (isset($searched_products)) : ?>
+            <ul>
+                <li>
+                    <h3>
+                        <?php echo $searched_products[0] ?>
+                    </h3>
+                </li>
+                <li>
+                    <h3>
+                        <?php echo $searched_products[1] ?>
+                    </h3>
+                </li>
+                <li>
+                    <h3>
+                        <?php echo $searched_products[2] ?>
+                    </h3>
+                </li>
+            </ul>
 
+
+        <?php endif ?>
     </fieldset>
     <!-- Search Products end -->
     <fieldset>
@@ -310,4 +341,4 @@ if (isset($_POST['search'])) {
 <!--[x] Search about and get a specific product using search. -->
 <!--[x] Create a form for adding a new product. -->
 <!--[x] Save/Store favorite's products using session. -->
-<!--[ ] Save the last 3 products that the user searched about using Cookies. -->
+<!--[x] Save the last 3 products that the user searched about using Cookies. -->
